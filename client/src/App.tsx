@@ -1,7 +1,6 @@
 
 /* Ionic */
-import { IonApp, IonRouterOutlet } from '@ionic/react';
-import { IonReactRouter } from '@ionic/react-router';
+import { IonApp } from '@ionic/react';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -22,13 +21,12 @@ import '@ionic/react/css/display.css';
 /* Theme variables */
 import './theme/variables.css';
 
-const App: React.FC = () => (
-  <IonApp>
-    <IonReactRouter>
-      <IonRouterOutlet>
+/* Util(s) */
+import MainRouter from 'src/utils/router/MainRouter';
 
-      </IonRouterOutlet>
-    </IonReactRouter>
+const App: React.FC = () => (
+  <IonApp> 
+    <MainRouter/>
   </IonApp>
 );
 

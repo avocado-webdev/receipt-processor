@@ -1,14 +1,29 @@
 /* React */
-import React from 'react';
+import React, { Suspense } from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
-import * as serviceWorkerRegistration from './serviceWorkerRegistration';
+import App from 'src/App';
 import reportWebVitals from './reportWebVitals';
+import * as serviceWorkerRegistration from './serviceWorkerRegistration';
+
+/* React-Router */
+import {
+  BrowserRouter as Router
+} from 'react-router-dom';
+
+/* Redux */
+import { Provider } from 'react-redux';
+import { store } from 'src/redux/store';
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <Provider store={store}>
+    <React.StrictMode>
+      <Suspense fallback="loading">
+        <Router>
+          <App />
+        </Router>
+      </Suspense>
+    </React.StrictMode>
+  </Provider>,
   document.getElementById('root')
 );
 
