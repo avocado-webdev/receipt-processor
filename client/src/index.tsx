@@ -10,6 +10,9 @@ import {
   BrowserRouter as Router
 } from 'react-router-dom';
 
+/* Capacitor */
+import { defineCustomElements } from '@ionic/pwa-elements/loader';
+
 /* Redux */
 import { Provider } from 'react-redux';
 import { store } from 'src/redux/store';
@@ -26,6 +29,13 @@ ReactDOM.render(
   </Provider>,
   document.getElementById('root')
 );
+
+/**
+    some plugins, such as camera and toast, have web-based UI available
+    when not running natively - therefore, the element loader should be called after
+    the application has been rendered for the first time
+**/
+defineCustomElements(window);
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

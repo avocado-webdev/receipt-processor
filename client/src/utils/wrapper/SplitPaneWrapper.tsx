@@ -24,11 +24,11 @@ const SplitPaneWrapper: React.FC<SplitPaneWrapperProps> = ({ children }) => {
                 <IonSplitPane contentId="main-menu">
                     {children}
                 </IonSplitPane>
-            )
+            );
         } else {
             return (
                 <React.Fragment>{children}</React.Fragment>
-            )
+            );
         }
     }
 

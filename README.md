@@ -4,6 +4,8 @@
 
 ### Installation & grundlegende Befehle
 
+<hr/>
+
 <br/>
 
 ```bash
@@ -13,6 +15,8 @@ $ ionic start [appname] --template [angular][react][vue]
 <br/>
 
 ### Bibliotheken & Abhängigkeiten (Dependencies)
+
+<hr/>
 
 <br/>
 
@@ -44,3 +48,11 @@ $ npm install axios
 $ npm install react-redux
 $ npm install @reduxjs/toolkit
 ```
+
+<br/>
+
+### Plugins (Capacitor)
+
+<hr/>
+
+<br/

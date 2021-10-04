@@ -1,0 +1,12 @@
+/* Stylesheet of ImageUploader.tsx */
+
+.image_uploader_container {
+    .fab_container {
+        right: 16px;
+        bottom: 16px;
+
+        .fab_btn {
+            --background: var(--ion-color-primColor);
+        }
+    }
+}

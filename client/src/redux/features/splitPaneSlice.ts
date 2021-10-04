@@ -2,7 +2,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 /* Interface(s) */
-export interface SplitPaneState{
+export interface SplitPaneState {
     splitPane: SplitPaneState;
     value: boolean;
 }

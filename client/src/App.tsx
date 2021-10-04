@@ -24,10 +24,12 @@ import './theme/variables.css';
 /* Util(s) */
 import MainRouter from 'src/utils/router/MainRouter';
 
-const App: React.FC = () => (
-  <IonApp> 
-    <MainRouter/>
-  </IonApp>
-);
+const App: React.FC = () => {
+  return (
+    <IonApp>
+      <MainRouter />
+    </IonApp>
+  );
+};
 
 export default App;
