@@ -14,11 +14,11 @@ import {
 
 import { cameraOutline } from 'ionicons/icons';
 
+/* Capacitor */
 import { 
     Camera,
     CameraResultType,
-    CameraSource,
-    Photo,
+    CameraSource
 } from '@capacitor/camera';
 
 /* Stylesheet */
@@ -30,18 +30,19 @@ const ImageUploader: React.FC = () => {
     const captureImage = async () => {
         try {
             const image = await Camera.getPhoto({
-                resultType: CameraResultType.Base64,
+                resultType: CameraResultType.DataUrl,
                 source: CameraSource.Camera,
                 quality: 100
             });
     
-            if(image.base64String) {
-                dispatch(setImage(image.base64String));
+            if(image.dataUrl) {
+                dispatch(setImage(image.dataUrl));
             }
-        } catch(error) {
-            // console.log(error);
+        } catch(error: any) {
+            console.log(error.message);
         }
     };
+
 
     return (
         <div className={styles.image_uploader_container}>

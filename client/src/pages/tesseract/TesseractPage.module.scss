@@ -1,0 +1,24 @@
+/* Stylesheet of TesseractPage.tsx */
+
+.grid_container {
+    height: 100%;
+
+    ion-row {
+        height: 100%;
+
+        ion-col {
+            height: 100%;
+            display: flex;
+            border: 1px solid #e4e4e4;
+            border-radius: 8px;
+        }
+    }
+
+    .preview_col {
+        margin-right: 2px;
+    }
+
+    .result_col {
+        margin-left: 2px;
+    }
+}

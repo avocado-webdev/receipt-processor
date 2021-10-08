@@ -1,0 +1,17 @@
+/* Stylesheet of OCRContainer.tsx */
+
+.ocr_container {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .fab_container {
+        bottom: 16px;
+        left: 16px;
+
+        .fab_btn {
+            --background: var(--ion-color-primColor);
+        }
+    }
+}

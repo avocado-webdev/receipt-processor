@@ -1,0 +1,36 @@
+/* Stylesheet of ImagePreview.tsx */
+
+.image_preview_container {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+
+    .image {
+        margin: 0;
+        height: 100%;
+        border-radius: 8px;
+    }
+
+    .label_container {
+        display: flex;
+        align-items: center;
+
+        .block_container {
+            text-align: center;
+
+            .label {
+                margin: 0px 0px 21px 0px;
+                font-size: 21px;
+                color: #bdc4cc;
+            }
+
+            ion-icon {
+                font-size: 92px;
+                color: #bdc4cc;
+            }
+        }
+    }
+}
+
+/* set Media Queries for different display sizes and orientation of devices */
