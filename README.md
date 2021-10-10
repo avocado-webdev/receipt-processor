@@ -21,6 +21,28 @@ Der *OCR-Prozess* besteht dabei aus der *Datenvorverarbeitung*, bei dem das Bild
 
 <br/>
 
+### Installation
+
+<hr/>
+
+<br/>
+
+Die folgenden Ausschnitte veranschaulichen die Installation und Verwendung von Tesseract. Dabei wird mithilfe von *emscripten*, C- und C++-Code zu *WebAssembly* kompiliert, wodurch Tesseract im Webbrowser ausgeführt und die OCR-Engine entsprechend verwendet werden kann:
+
+<br/>
+
+```bash
+npm install tesseract.js
+```
+
+<br/>
+
+```JSX
+import { createWorker } from 'tesseract.js';
+```
+
+<br/>
+
 ### Kassenbeleg/Kassabon
 
 <hr/>
@@ -46,15 +68,13 @@ Kassenbelege sind in der Regel für den Konsumenten selbst, als Überblick und D
 
 **Aufbau & Struktur:**
 
-Die Kassenbelege können abhängig von dem jeweiligen Supermarkt unterschiedlich aufgebaut und strukturiert sein, sowie unterschiedliche Informationen zu den einzelnen Produkten enthalten. Folglich muss die Applikation unabhängig von der Art des Kassabons interagieren können und der Texterkennungsprozess darf nicht wesentlich von dem Aufbau und der Struktur beeinträchtigt werden.
+Die Kassenbelege können abhängig von dem jeweiligen Supermarkt unterschiedlich aufgebaut und strukturiert sein, sowie unterschiedliche Informationen zu den einzelnen Produkten enthalten. Folglich muss der Texterkennungsprozess unabhängig von der Art des Kassenbelegs interagieren.
 
 <br/>
 
 **Irrelevante Informationen & Produktbezeichnungen:**
 
-Auf dem Kassenbeleg befinden sich zusätzliche Informationen, die für die Applikation nicht weiter relevant sind, wie z.B. Name und Adresse des Lebensmittelgeschäfts, sowie Art der Bezahlung, etc. Folglich können diese Informationen einen zusätzlichen Mehraufwandin in der Weiterverarbeitung generieren und die Effizienz der Texterkennung negativ beeinflussen. 
-
-Zudem können die Produkte unterschiedliche Bezeichnungen besitzen, bzw. mehr oder weniger genau beschrieben werden. Folglich wird die Klassifizierung der Lebensmittel erschwert - die Art des Produkts selbst und nicht dessen Bezeichnung ist für die Applikation von Interesse.
+Auf dem Kassenbeleg können sich zusätzliche Informationen befinden, die für die Applikation nicht weiter relevant sind, wie z.B. Name und Adresse des Lebensmittelgeschäfts, sowie Art der Bezahlung, etc. Folglich generieren diese Informationen einen zusätzlichen Mehraufwand bei der Weiterverarbeitung der Daten, die sich negativ auf die Effizienz des eigentlichen Texterkennungsprozess auswirken kann.
 
 
 
