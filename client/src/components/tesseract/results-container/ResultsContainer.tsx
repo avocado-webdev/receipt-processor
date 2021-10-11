@@ -10,14 +10,14 @@ import { analyticsOutline } from 'ionicons/icons';
 import OCRContainer from 'src/components/tesseract/ocr-container/OCRContainer';
 
 /* Stylesheet */
-import styles from './ResultContainer.module.scss';
+import styles from './ResultsContainer.module.scss';
 
 /* Interface(s) */
 interface ResultContainerProps {
     image: string;
 }
 
-const ResultContainer: React.FC<ResultContainerProps> = ({ image }) => {
+const ResultsContainer: React.FC<ResultContainerProps> = ({ image }) => {
     return (
         <div className={styles.results_container}>
             {image ?
@@ -38,4 +38,4 @@ const ResultContainer: React.FC<ResultContainerProps> = ({ image }) => {
     );
 };
 
-export default ResultContainer;
+export default ResultsContainer;

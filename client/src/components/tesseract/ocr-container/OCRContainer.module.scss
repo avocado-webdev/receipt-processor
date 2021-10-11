@@ -2,16 +2,64 @@
 
 .ocr_container {
     height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 
-    .fab_container {
-        bottom: 16px;
-        left: 16px;
+    .flex_container {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
 
-        .fab_btn {
-            --background: var(--ion-color-primColor);
+        .btn_container {
+            width: 90%;
+    
+            .title {
+                text-align: center;
+                margin: 0px 0px 21px 0px;
+                font-size: 16px;
+                line-height: 1.75;
+
+                span {
+                    color: var(--ion-color-primColor);
+                }
+            }
+    
+            .btn {
+                height: 46px;
+                --background: var(--ion-color-primColor);
+                text-transform: none;
+                font-size: 16px;
+                --border-radius: 52px;
+            }
+        }
+    }
+
+    .results_container {
+        padding: 0px 12px 0px 12px;
+        line-height: 1.75;
+        font-size: 14px;
+    }
+}
+
+/* set Media Queries for different display sizes and orientation of devices */
+@media screen and(min-width: 512px) {
+    .ocr_container {
+        .flex_container {
+            .title {
+                font-size: 18px !important;
+            }
+
+            .btn_container {
+                width: 65%;
+
+                .btn {
+                    height: 52px;
+                }
+            }
+        }
+
+        .results_container {
+            padding: 0px 21px 0px 21px;
+            font-size: 16px;
         }
     }
 }

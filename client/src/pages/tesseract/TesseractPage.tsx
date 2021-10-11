@@ -1,5 +1,5 @@
 /* React */
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 
 /* Ionic */
 import {
@@ -18,7 +18,7 @@ import { ImagePaneState } from 'src/redux/store';
 
 /* Component(s) */
 import ImagePreview from 'src/components/tesseract/image-preview/ImagePreview';
-import ResultContainer from 'src/components/tesseract/result-container/ResultContainer';
+import ResultsContainer from 'src/components/tesseract/results-container/ResultsContainer';
 import ImageUploader from 'src/components/tesseract/image-uploader/ImageUploader';
 
 /* Stylesheet */
@@ -26,22 +26,37 @@ import styles from './TesseractPage.module.scss';
 
 const TesseractPage: React.FC = () => {
     const imageState: ImagePaneState = useSelector((state: ImagePaneState) => state.imagePane);
+    const contentRef = useRef<HTMLIonContentElement | null>(null);
+
+    useEffect(() => {
+        if(imageState.value !== '') {
+            contentRef.current?.scrollToBottom(700);
+        }
+    }, [imageState.value]);
 
     return (
         <IonPage>
-            <IonContent>
+            <IonContent 
+                ref={contentRef} 
+                className={styles.content_container}>
                 <IonGrid className={styles.grid_container}>
                     <IonRow>
-                        <IonCol className={styles.preview_col}>
+                        <IonCol 
+                            className={styles.preview_col}
+                            sizeXs="12"
+                            sizeMd="6">
                             <ImagePreview image={imageState.value} />
                         </IonCol>
-                        <IonCol className={styles.result_col}>
-                            <ResultContainer image={imageState.value}/>
+                        <IonCol 
+                            className={styles.result_col}
+                            sizeXs="12"
+                            sizeMd="6">
+                            <ResultsContainer image={imageState.value}/>
                         </IonCol>
                     </IonRow>
                 </IonGrid>
-                <ImageUploader />
             </IonContent>
+            <ImageUploader />
         </IonPage>
     );
 };
