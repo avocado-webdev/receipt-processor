@@ -27,7 +27,7 @@ Der *OCR-Prozess* besteht dabei aus der *Datenvorverarbeitung*, bei dem das Bild
 
 <br/>
 
-Die folgenden Ausschnitte veranschaulichen die Installation und Verwendung von Tesseract. Dabei wird mithilfe von *emscripten*, C- und C++-Code zu *WebAssembly* kompiliert, wodurch Tesseract im Webbrowser ausgeführt und die OCR-Engine entsprechend verwendet werden kann:
+Die folgenden Ausschnitte veranschaulichen die Installation und Verwendung von Tesseract. Dabei wird mithilfe von *emscripten*, C- und C++-Code zu *WebAssembly* kompiliert, wodurch Tessertact im Webbrowser ausgeführt und die OCR-Engine entsprechend verwendet werden kann:
 
 <br/>
 
@@ -39,7 +39,52 @@ npm install tesseract.js
 
 ```JSX
 import { createWorker } from 'tesseract.js';
+
+const worker = createWorker({
+    logger: m => console.log(m);
+});
+
+const processig = (image: string) async => {
+    await worker.load();
+    await worker.loadLanguage('deu');
+    await worker.initialize('deu');
+    const results = await worker.recognize(image);
+    console.log(results);
+    await worker.terminate();
+};
 ```
+
+<br/>
+
+Die Auswahl der Sprache ist entscheidend für die Bestimmung der trainierten Sprachdaten, die bei der Verarbeitung verwendet werden sollen und können folglich die Genauigkeit der einzelnen Ergebnisse beeinflussen. Tesseract unterstützt dabei über hundert Sprachen, die mithilfe von sogenannten <a href="https://tesseract-ocr.github.io/tessdoc/Data-Files-in-different-versions.html">*Sprachcodes*</a> definiert werden. Diese können ebenfalls über *String-Verkettungen* miteinander verbunden werden.
+
+Der Methode *recognize* wird das zu untersuchende Bild als String-Parameter übergeben. Unterstützt werden dabei die gängigen Bildformate: jpg, png, bmp und pbm. Das Ergebenis der Analyse wird in der Variable *results* gespeichert, welche anschließend auf der Konsole ausgegeben wird.
+
+Der folgende Ausschnitt zeigt die Attribute und Ausprägungen, die in dem Objekt result enthalten sind:
+
+<br/>
+
+```JSON
+{
+  text: "feedMe is an awesome application for managing food and nutrition."
+  hocr: "<div class='ocr_page' id= ..."
+  tsv: "1 1 0 0 0 0 0 0 1486 ..."
+  box: null
+  unlv: null
+  osd: null
+  confidence: 90
+  blocks: [{...}]
+  psm: "SINGLE_BLOCK"
+  oem: "DEFAULT"
+  version: "4.0.0-825-g887c"
+  paragraphs: [{...}]
+  lines: (5) [{...}, ...]
+  words: (47) [{...}, {...}, ...]
+  symbols: (240) [{...}, {...}, ...]
+}
+
+```
+
 
 <br/>
 
