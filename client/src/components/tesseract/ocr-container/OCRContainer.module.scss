@@ -8,16 +8,16 @@
         display: flex;
         align-items: center;
         justify-content: center;
-
+        
         .btn_container {
             width: 90%;
-    
+            
             .title {
                 text-align: center;
                 margin: 0px 0px 21px 0px;
                 font-size: 16px;
                 line-height: 1.75;
-
+                
                 span {
                     color: var(--ion-color-primColor);
                 }
@@ -31,12 +31,53 @@
                 --border-radius: 52px;
             }
         }
-    }
 
-    .results_container {
-        padding: 0px 12px 0px 12px;
-        line-height: 1.75;
-        font-size: 14px;
+        .results_container {
+            padding: 0px 12px 0px 12px;
+            line-height: 1.75;
+            font-size: 14px;
+            
+            .label_container {
+                padding: 12px;
+                margin: 0px 0px 16px 0px;
+                display: flex;
+                align-items: center;
+                background: #f1f1f1;
+                border-radius: 4px;
+
+                .icon {
+                    margin: 0px 12px 0px 0px;
+                    font-size: 21px;
+                }
+
+                .label {
+                    font-size: 16px;
+                    font-weight: bold;
+                }
+            }
+
+            .text_container {
+                padding: 0px 12px 0px 12px;
+            }
+
+            .additional_information {
+                padding: 0px 12px 0px 12px;
+                margin: 21px 0px 0px 0px;
+
+                span {
+                    font-weight: bold;
+                }
+
+                .label {
+                    margin: 0px 0px 12px 0px;
+                    font-size: 16px;
+                }
+            }
+
+            hr {
+                background: #e6e6e6;
+            }
+        }
     }
 }
 
@@ -55,11 +96,28 @@
                     height: 52px;
                 }
             }
-        }
+            
+            .results_container {
+                padding: 0px 21px 0px 21px;
+                font-size: 16px;
 
-        .results_container {
-            padding: 0px 21px 0px 21px;
-            font-size: 16px;
+                .label_container {
+                    .icon {
+                        font-size: 26px;
+                    }
+
+                    .label {
+                        font-size: 18px;
+                    }
+                }
+
+                .additional_information {
+                    .label {
+                        font-size: 18px;
+                        font-weight: bold;
+                    }
+                }
+            }
         }
     }
 }

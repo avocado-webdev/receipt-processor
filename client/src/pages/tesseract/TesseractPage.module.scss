@@ -2,25 +2,33 @@
 
 .content_container {
     --offset-top: -4px !important;
-    --offset-bottom: -8px !important;
+    --offset-bottom: -12px !important;
 
     .grid_container {
+        padding: 12px;
         height: 100%;
     
-        ion-row {
+        .row {
             height: 100%;
-    
-            ion-col {
+            
+            .col {
                 height: 100%;
                 display: flex;
                 border: 1px solid #e4e4e4;
-                border-radius: 8px;
+                border-radius: 12px;
+            }
+
+            .results_col {
+                margin: 12px 0px 0px 0px;
             }
         }
-    
-        .result_col {
-            margin: 8px 0px 0px 0px;
-        }
+    }
+}
+
+.fab_container {
+    .fab_btn {
+        --background: #BDC4CC;
+        opacity: 0.65;
     }
 }
 
@@ -31,9 +39,17 @@
         --offset-bottom: 0px !important;
 
         .grid_container {
-            .result_col {
-                margin: 0;
+            padding: 8px;
+
+            .row {
+                .results_col {
+                    margin: 0;
+                }
             }
         }
+    }
+
+    .fab_container {
+        display: none;
     }
 }

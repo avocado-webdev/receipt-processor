@@ -15,7 +15,7 @@ const ProcessingContainer: React.FC = () => {
                 />
                 <div className={styles.message_container}>
                     <h1 className={styles.message}>
-                        processing
+                        Wird bearbeitet
                     </h1>
                     <div className={styles.dot_container} >
                         <img

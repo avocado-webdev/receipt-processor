@@ -21,7 +21,7 @@
 
             .label {
                 margin: 0px 0px 21px 0px;
-                font-size: 21px;
+                font-size: 18px;
                 color: #bdc4cc;
             }
 
@@ -34,3 +34,14 @@
 }
 
 /* set Media Queries for different display sizes and orientation of devices */
+@media screen and(min-width: 512px) {
+    .image_preview_container {
+        .label_container {
+            .block_container {
+                .label {
+                    font-size: 21px;
+                }
+            }
+        }
+    }
+}

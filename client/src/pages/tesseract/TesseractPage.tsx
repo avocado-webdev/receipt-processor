@@ -1,5 +1,5 @@
 /* React */
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 
 /* Ionic */
 import {
@@ -7,8 +7,13 @@ import {
     IonContent,
     IonGrid,
     IonRow,
-    IonCol
+    IonCol,
+    IonFab,
+    IonFabButton,
+    IonIcon
 } from '@ionic/react';
+
+import { chevronUpOutline } from 'ionicons/icons';
 
 /* React-Redux */
 import { useSelector } from 'react-redux';
@@ -28,35 +33,59 @@ const TesseractPage: React.FC = () => {
     const imageState: ImagePaneState = useSelector((state: ImagePaneState) => state.imagePane);
     const contentRef = useRef<HTMLIonContentElement | null>(null);
 
+    // reachedBottom
+    const [reachedBottom, setReachedBottom] = useState<boolean>(false);
+
     useEffect(() => {
-        if(imageState.value !== '') {
-            contentRef.current?.scrollToBottom(700);
+        if (imageState.value !== '') {
+            contentRef.current?.scrollToBottom(700).then(() => {
+                setReachedBottom(true);
+            });
         }
+
     }, [imageState.value]);
+
+    const scrollToTop = () => {
+        contentRef.current?.scrollToTop(700);
+    };
 
     return (
         <IonPage>
-            <IonContent 
-                ref={contentRef} 
+            <IonContent
+                ref={contentRef}
+                scrollEvents={true}
                 className={styles.content_container}>
                 <IonGrid className={styles.grid_container}>
-                    <IonRow>
-                        <IonCol 
-                            className={styles.preview_col}
+                    <IonRow className={styles.row}>
+                        <IonCol
+                            className={`${styles.col} ${styles.preview_col}`}
                             sizeXs="12"
                             sizeMd="6">
                             <ImagePreview image={imageState.value} />
                         </IonCol>
-                        <IonCol 
-                            className={styles.result_col}
+                        <IonCol
+                            className={`${styles.col} ${styles.results_col}`}
                             sizeXs="12"
                             sizeMd="6">
-                            <ResultsContainer image={imageState.value}/>
+                            <ResultsContainer image={imageState.value} />
                         </IonCol>
                     </IonRow>
                 </IonGrid>
             </IonContent>
             <ImageUploader />
+            {reachedBottom && (
+                <IonFab 
+                    className={styles.fab_container}
+                    vertical="top"
+                    horizontal="end">
+                    <IonFabButton 
+                        className={styles.fab_btn} 
+                        size="small"
+                        onClick={() => scrollToTop()}>
+                        <IonIcon icon={chevronUpOutline} />
+                    </IonFabButton>
+                </IonFab>
+            )}
         </IonPage>
     );
 };

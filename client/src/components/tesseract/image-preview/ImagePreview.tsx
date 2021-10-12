@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 /* Ionic */
 import { IonIcon } from '@ionic/react';
 
-import { cameraOutline } from 'ionicons/icons';
+import { documentOutline } from 'ionicons/icons';
 
 /* Stylesheet */
 import styles from './ImagePreview.module.scss';
@@ -34,9 +34,9 @@ const ImagePreview: React.FC<ImagePreviewProps> = ({ image }) => {
                 <div className={styles.label_container}>
                     <div className={styles.block_container}>
                         <div className={styles.label}>
-                            Receipt Preview
+                            Kassenbeleg-Ansicht
                         </div>
-                        <IonIcon icon={cameraOutline} />
+                        <IonIcon icon={documentOutline} />
                     </div>
                 </div>
             }
