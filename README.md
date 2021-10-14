@@ -2,19 +2,21 @@
 
 <br/>
 
-<style>
-    p {
-        font-size: 14px;
-        line-height: 1.75;
-    }
+<div display="none">
+    <style>
+        p {
+            font-size: 14px;
+            line-height: 1.75;
+        }
+        span {
+            font-size: 12px;
+            font-style: italic;
+        }
+    </style>
+</div>
 
-    span {
-        font-size: 12px;
-        font-style: italic;
-    }
-</style>
 
-Die Applikation *Receipt Processor* versucht mithilfe der Verfahren der *Texterkennung (OCR)* und *Bildverarbeitung (Image Processing)*, relevante Informationen aus einem *Kassenbeleg (Kassabon)*, welcher in Form eines Bildes zur Verfügung steht, zu extrahieren und weiterzuverarbeiten. Das Bild kann dabei direkt mit der Kamera des jeweiligen Endgeräts (z.B. Smartphone, Webcam) aufgenommen, oder die zu analysierende Datei aus dem Dateisystem des entsprechenden Geräts ausgewählt und hochgeladen werden. 
+Die Applikation *Receipt Processor* versucht mithilfe der Verfahren der *Texterkennung (OCR)* und *Bildverarbeitung (Image Processing)*, relevante Informationen aus einem *Kassenbeleg (Kassabon)*, welcher in Form eines Bildes zur Verfügung steht, zu extrahieren und weiterzuverarbeiten. Das Bild kann dabei direkt mit der Kamera des jeweiligen Endgeräts (z.B. Smartphone) aufgenommen, oder die zu analysierende Datei aus dem Dateisystem des entsprechenden Geräts ausgewählt und hochgeladen werden. 
 
 <br/>
 
@@ -83,7 +85,7 @@ Der folgende Ausschnitt zeigt die Attribute und Ausprägungen, die in dem Objekt
 
 <br/>
 
-```JSON
+```JSX
 {
   text: "feedMe is an awesome application for managing food and nutrition."
   hocr: "<div class='ocr_page' id= ..."
