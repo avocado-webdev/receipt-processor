@@ -2,20 +2,6 @@
 
 <br/>
 
-<div display="none">
-    <style>
-        p {
-            font-size: 14px;
-            line-height: 1.75;
-        }
-        span {
-            font-size: 12px;
-            font-style: italic;
-        }
-    </style>
-</div>
-
-
 Die Applikation *Receipt Processor* versucht mithilfe der Verfahren der *Texterkennung (OCR)* und *Bildverarbeitung (Image Processing)*, relevante Informationen aus einem *Kassenbeleg (Kassabon)*, welcher in Form eines Bildes zur Verfügung steht, zu extrahieren und weiterzuverarbeiten. Das Bild kann dabei direkt mit der Kamera des jeweiligen Endgeräts (z.B. Smartphone) aufgenommen, oder die zu analysierende Datei aus dem Dateisystem des entsprechenden Geräts ausgewählt und hochgeladen werden. 
 
 <br/>
@@ -186,7 +172,26 @@ Der *Bildvorverarbeitungsprozess* umfasst grundlegende Verfahren, wie z.B. *Bina
 Unter *Binarization* versteht man die Umwandlung der Pixel eines Bildes in *Schwarz* oder *Weiß*, um den Kontrast entsprechend zu erhöhen und die einzelnen Buchstaben folglich besser erkennen zu können.
 
 
+<br/>
 
+<br/>
+
+<hr/>
+
+<details>
+    <summary> Grundlegendes Styling
+        <style>
+            p {
+                font-size: 14px;
+                line-height: 1.75;
+            }
+            span {
+                font-size: 12px;
+                font-style: italic;
+            }
+        </style>
+    </summary>
+</details>
 
 
 
