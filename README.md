@@ -178,20 +178,16 @@ Unter *Binarization* versteht man die Umwandlung der Pixel eines Bildes in *Schw
 
 <hr/>
 
-<details>
-    <summary> Grundlegendes Styling
-        <style>
-            p {
-                font-size: 14px;
-                line-height: 1.75;
-            }
-            span {
-                font-size: 12px;
-                font-style: italic;
-            }
-        </style>
-    </summary>
-</details>
+<style>
+    p {
+        font-size: 14px;
+        line-height: 1.75;
+    }
+    span {
+        font-size: 12px;
+        font-style: italic;
+    }
+</style>
 
 
 
