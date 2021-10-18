@@ -4,11 +4,11 @@ import { createSlice } from '@reduxjs/toolkit';
 /* Interface(s) */
 export interface ImagePaneState {
     imagePane: ImagePaneState;
-    value: string;
+    image: string;
 }
 
 const initialState: ImagePaneState = {
-    value: ''
+    image: '',
 } as ImagePaneState;
 
 export const imageSlice = createSlice({
@@ -16,13 +16,16 @@ export const imageSlice = createSlice({
     initialState,
     reducers: {
         setImage: (state, action) => {
-            state.value = action.payload;
+            state.image = action.payload;
+        },
+        setEditableImage: (state, action) => {
+
         }
     }
 });
 
 /* Action(s) */
-export const { setImage } = imageSlice.actions;
+export const { setImage, setEditableImage } = imageSlice.actions;
 
 /* Reducer(s) */
 export default imageSlice.reducer;

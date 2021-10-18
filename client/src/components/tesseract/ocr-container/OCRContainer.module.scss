@@ -85,12 +85,12 @@
 @media screen and(min-width: 512px) {
     .ocr_container {
         .flex_container {
-            .title {
-                font-size: 18px !important;
-            }
-
             .btn_container {
                 width: 65%;
+
+                .title {
+                    font-size: 18px;
+                }
 
                 .btn {
                     height: 52px;
@@ -116,6 +116,22 @@
                         font-size: 18px;
                         font-weight: bold;
                     }
+                }
+            }
+        }
+    }
+}
+
+@media screen and(min-width: 1920px) {
+    .ocr_container {
+        .flex_container {
+            .btn_container {
+                .title {
+                    font-size: 21px;
+                }
+
+                .btn {
+                    font-size: 18px;
                 }
             }
         }

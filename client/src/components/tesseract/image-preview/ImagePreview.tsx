@@ -2,19 +2,24 @@
 import React, { useState, useEffect } from 'react';
 
 /* Ionic */
-import { IonIcon } from '@ionic/react';
+import {
+    IonIcon 
+} from '@ionic/react';
 
-import { documentOutline } from 'ionicons/icons';
+import { 
+    documentOutline 
+} from 'ionicons/icons';
 
 /* Stylesheet */
 import styles from './ImagePreview.module.scss';
 
 /* Interface(s) */
-interface ImagePreviewProps {
+interface ImageContainerProps {
     image: string;
+    handleProcessorModal: Function;
 }
 
-const ImagePreview: React.FC<ImagePreviewProps> = ({ image }) => {
+const ImagePreview: React.FC<ImageContainerProps> = ({ image, handleProcessorModal }) => {
 
     // preview
     const [preview, setPreview] = useState<string>('');
@@ -23,20 +28,26 @@ const ImagePreview: React.FC<ImagePreviewProps> = ({ image }) => {
         if (image) {
             setPreview(image);
         }
-    }, [image])
+    }, [image]);
 
     return (
         <div className={styles.image_preview_container}>
-            {/* <div className={styles.image} style={{backgroundImage: `url(${preview})`}}/> */}
             {image ?
-                <img className={styles.image} src={preview} alt="Receipt Preview" />
+                <img 
+                    className={styles.image} 
+                    src={preview} alt="Receipe Preview" 
+                    onClick={
+                        () => {
+                            handleProcessorModal(true);
+                        } 
+                    }/>
                 :
                 <div className={styles.label_container}>
                     <div className={styles.block_container}>
                         <div className={styles.label}>
                             Kassenbeleg-Ansicht
                         </div>
-                        <IonIcon icon={documentOutline} />
+                        <IonIcon className={styles.icon} icon={documentOutline} />
                     </div>
                 </div>
             }

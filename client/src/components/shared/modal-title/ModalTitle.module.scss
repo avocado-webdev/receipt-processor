@@ -1,0 +1,36 @@
+/* Stylesheet of ModalTitle.tsx */
+
+.modal_title_container {
+    display: flex;
+    height: 62px;
+    align-items: center;
+    justify-content: center;
+    background: var(--ion-color-primColor);
+
+    .title {
+        margin: 0;
+        font-size: 21px;
+        color: #ffffff;
+    }
+}
+
+/* set Media Queries for different display sizes and orientation of devices */
+@media screen and(min-width: 512px) {
+    .modal_title_container {
+        height: 72px;
+
+        .title {
+            font-size: 24px;
+        }
+    }
+}
+
+@media screen and(min-width: 1620px) {
+    .modal_title_container {
+        height: 82px;
+
+        .title {
+            font-size: 28px;
+        }
+    }
+}

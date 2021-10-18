@@ -2,8 +2,13 @@
 import React from 'react';
 
 /* React-Redux */
-import { useDispatch } from 'react-redux';
-import { setImage } from 'src/redux/features/imageSlice';
+import { 
+    useDispatch 
+} from 'react-redux';
+
+import { 
+    setImage 
+} from 'src/redux/features/imageSlice';
 
 /* Ionic */
 import { 
@@ -12,7 +17,9 @@ import {
     IonIcon
 } from '@ionic/react';
 
-import { cameraOutline } from 'ionicons/icons';
+import { 
+    cameraOutline 
+} from 'ionicons/icons';
 
 /* Capacitor */
 import { 

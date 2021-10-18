@@ -17,10 +17,6 @@
                 border: 1px solid #e4e4e4;
                 border-radius: 12px;
             }
-
-            .results_col {
-                margin: 12px 0px 0px 0px;
-            }
         }
     }
 }
@@ -28,24 +24,18 @@
 .fab_container {
     .fab_btn {
         --background: #BDC4CC;
-        opacity: 0.65;
+        opacity: 0.575  ;
     }
 }
 
 /* set Media Queries for different display sizes and orientation of devices */
-@media screen and(min-width: 512px) {
+@media screen and(min-width: 1200px) {
     .content_container {
         --offset-top: 0px !important;
         --offset-bottom: 0px !important;
 
         .grid_container {
             padding: 8px;
-
-            .row {
-                .results_col {
-                    margin: 0;
-                }
-            }
         }
     }
 

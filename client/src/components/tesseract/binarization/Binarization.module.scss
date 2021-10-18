@@ -1,0 +1,17 @@
+/* Stylesheet of Binarization.tsx */
+
+.binarization_container {
+    padding: 14px;
+    height: 90%;
+
+    .image {
+        height: 95%;
+    }
+}
+
+/* set Media Queries for different display sizes and orientation of devices */
+@media screen and(min-width: 512px) {
+    .binarization_container {
+        height: 92.5%;
+    }
+}

@@ -1,0 +1,39 @@
+/* Stylesheet of ProcessorModal.tsx*/
+
+.process_modal_container {
+    .slide_container {
+        height: 100%;
+        width: 100%;
+        
+        .slide {
+            display: block;
+        }
+    }
+}
+
+/* set Media Queries for different display sizes and orientation of devices */
+@media screen and(min-width: 512px) {
+    .process_modal_container {
+        --border-radius: 12px;
+    }
+}
+
+@media screen and(min-width: 1024px) {
+    .process_modal_container {
+        --height: 90%;
+        --width: 90%;
+        border-radius: 12px;
+    }
+}
+
+@media screen and(min-width: 1200px) {
+    .process_modal_container {
+        --width: 80%;
+    }
+}
+
+@media screen and(min-width: 1920px) {
+    .process_modal_container {
+        --width: 70%;
+    }
+}

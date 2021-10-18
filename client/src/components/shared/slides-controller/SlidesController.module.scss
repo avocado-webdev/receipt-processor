@@ -1,0 +1,44 @@
+/* Stylesheet of SlidesController.tsx */
+
+.slides_controller_container {
+    margin: 0px 21px 0px 21px;
+    height: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .btn {
+        height: 42px;
+        width: 86px;
+        --background: #f6f7f9;
+        --color: #30394a;
+    }
+
+    .process_btn {
+        height: 42px;
+        width: 210px;
+        text-transform: none;
+        --background: var(--ion-color-primColor);
+    }
+}
+
+/* set Media Queries for different display sizes and orientation of devices */
+@media screen and(min-width: 512px) {
+    .slide_controller_container {
+        height: 7.5%;
+    }
+}
+
+@media screen and(min-width: 1920px) {
+    .slide_controller_container {
+        .btn {
+            height: 48px;
+        }
+
+        .process_btn {
+            height: 52px;
+            width: 242px;
+            font-size: 18px;
+        }
+    }
+}

@@ -9,9 +9,11 @@ import {
 } from 'react-router';
 
 /* Ionic */
-import { IonRouterOutlet } from '@ionic/react';
+import { 
+    IonRouterOutlet 
+} from '@ionic/react';
 
-/* Util(s) */
+/* Utils */
 import SplitPaneWrapper from 'src/utils/wrapper/SplitPaneWrapper';
 
 /* Page(s) */

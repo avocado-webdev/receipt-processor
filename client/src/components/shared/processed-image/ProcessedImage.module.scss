@@ -1,0 +1,28 @@
+/* Stylesheet of ProcessedImage.tsx */
+
+.processed_image_container {
+    .default_label_container {
+        .label {
+            margin: 0px 0px 21px 0px;
+            font-size: 21px;
+            color: #bdc4cc;
+        }
+    
+         .icon {
+            font-size: 92px;
+            color: #bdc4cc;
+         }
+     }
+}
+
+    
+/* set Media Queries for different display sizes and orientation of devices */
+@media screen and(min-widh: 1024px) {
+    .processed_image_container {
+        .default_label_container {
+            .label {
+                font-size: 24px;
+            }
+        }
+    }
+}

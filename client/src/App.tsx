@@ -21,7 +21,7 @@ import '@ionic/react/css/display.css';
 /* Theme variables */
 import './theme/variables.css';
 
-/* Util(s) */
+/* Utils */
 import MainRouter from 'src/utils/router/MainRouter';
 
 const App: React.FC = () => {

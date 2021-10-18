@@ -8,13 +8,20 @@ import {
     IonLabel
 } from '@ionic/react';
 
-import { analyticsOutline } from 'ionicons/icons';
+import { 
+    analyticsOutline 
+} from 'ionicons/icons';
+
+/* Service(s) */
+import { 
+    ServiceLoader 
+} from 'src/shared/services/service-loader';
 
 /* Tesseract */
-import {
-    createWorker,
-    RecognizeResult
-} from 'tesseract.js';
+// import {
+//     createWorker,
+//     RecognizeResult
+// } from 'tesseract.js';
 
 /* Stylesheet */
 import styles from './OCRContainer.module.scss';
@@ -27,48 +34,50 @@ interface ORCContainerProps {
     handleInformation: Function;
 }
 
-const OCRContainer: React.FC<ORCContainerProps> = ({ 
-        image, 
-        handleIsProcessing, 
-        handleResults,
-        handleInformation
-    }) => {
-    
-    const worker = createWorker();
+const OCRContainer: React.FC<ORCContainerProps> = ({
+    image,
+    handleIsProcessing,
+    // handleResults,
+    // handleInformation
+}) => {
 
-    const processing = async () => {
-        handleIsProcessing(true);
-        const startTime: number = performance.now();
+    // const worker = createWorker();
+    // const tesseract = ServiceLoader.tesseract();
 
-        await worker.load();
-        await worker.loadLanguage('deu');
-        await worker.initialize('deu');
+    // const processing = async () => {
+    //     handleIsProcessing(true);
+    //     const startTime: number = performance.now();
 
-        const results: RecognizeResult = await worker.recognize(image);
-        console.log(results);
-        handleResults(results);
+    //     await worker.load();
+    //     await worker.loadLanguage('deu');
+    //     await worker.initialize('deu');
 
-        await worker.terminate();
+    //     const results: RecognizeResult = await worker.recognize(image);
+    //     console.log(results);
+    //     handleResults(results);
 
-        const endTime: number = performance.now();
-        const time: number = (endTime - startTime) / 1000;
-        console.log(`Processing time: ${time} seconds`);
-        handleInformation({time: time});
-    };
+    //     await worker.terminate();
+
+    //     const endTime: number = performance.now();
+    //     const time: number = (endTime - startTime) / 1000;
+    //     console.log(`Processing time: ${time} seconds`);
+    //     handleInformation({time: time});
+    // };
 
     return (
         <div className={styles.ocr_container}>
             <div className={styles.flex_container}>
                 <div className={styles.btn_container}>
                     <div className={styles.title}>
-                        <IonLabel>Klicken Sie auf den Button um die <span>Bildverarbeitung</span> zu starten</IonLabel>
+                        Klicken Sie auf den Button unterhalb, um die <span>Bildverarbeitung</span> zu starten
                     </div>
                     <IonButton
                         className={styles.btn}
                         expand="block"
                         onClick={
                             () => {
-                                processing().then(() => {
+                                handleIsProcessing(true);
+                                ServiceLoader.tesseract().processing(image).then(() => {
                                     handleIsProcessing(false);
                                 });
                             }

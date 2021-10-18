@@ -2,8 +2,13 @@
 import React, { useEffect } from 'react';
 
 /* React-Redux */
-import { useDispatch } from 'react-redux';
-import { hideSplitPane } from 'src/redux/features/splitPaneSlice';
+import { 
+    useDispatch 
+} from 'react-redux';
+
+import { 
+    hideSplitPane 
+} from 'src/redux/features/splitPaneSlice';
 
 /* Stylesheet */
 import styles from './HomePage.module.scss';

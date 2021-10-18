@@ -38,7 +38,29 @@ const ResultsContainer: React.FC<ResultContainerProps> = ({ image }) => {
     };
 
     // results
-    const [results, setResults] = useState<RecognizeResult>();
+    const defaultResults: RecognizeResult = {
+        jobId: '',
+        data: {
+            blocks: [],
+            confidence: 0,
+            lines: [],
+            oem: '',
+            osd: '',
+            paragraphs: [],
+            psm: '',
+            symbols: [],
+            text: '',
+            version: '',
+            words: [],
+            hocr: '',
+            tsv: '',
+            box: '',
+            unlv: '',
+            sd: ''
+        }
+    }
+
+    const [results, setResults] = useState<RecognizeResult>(defaultResults);
 
     const handleResults = (value: RecognizeResult) => {
         setResults(value);
@@ -62,15 +84,16 @@ const ResultsContainer: React.FC<ResultContainerProps> = ({ image }) => {
                 {isProcessing && (
                     <ProcessingContainer />
                 )}
-                {image ?
+                {image && !isProcessing && (
                     <div className={styles.results}>
                         <OCRContainer
                             image={image}
-                            handleIsProcessing={handleIsProcessing} 
-                            handleResults={handleResults} 
-                            handleInformation={handleInformation}/>
+                            handleIsProcessing={handleIsProcessing}
+                            handleResults={handleResults}
+                            handleInformation={handleInformation} />
                     </div>
-                    :
+                )}
+                {!image && !isProcessing && (
                     <div className={styles.label_container}>
                         <div className={styles.block_container}>
                             <div className={styles.label}>
@@ -79,9 +102,9 @@ const ResultsContainer: React.FC<ResultContainerProps> = ({ image }) => {
                             <IonIcon icon={analyticsOutline} />
                         </div>
                     </div>
-                }
+                )}
                 {!isProcessing && results && (
-                    <ResultsLabel resultsInformation={resultsInformation}/>
+                    <ResultsLabel resultsInformation={resultsInformation} />
                 )}
             </IonContent>
         </div>
