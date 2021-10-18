@@ -131,27 +131,28 @@ Auf dem Kassenbeleg befinden sich zusätzliche Informationen, die für die Appli
 
 <br/>
 
-### Informationsextraktion und -Aufbereitung (Anforderung 1)
+### Informationsextraktion und -Aufbereitung
 
 <hr>
 
 <br/>
 
-Die Applikation beschäftigt sich folglich mit der Herausforderung und Anforderung der *Informationsextraktion* und *-Aufbereitung* mithilfe der Verfahren von OCR. Die folgende Abbildung veranschaulicht dabei den grundlegenden Ablauf, sowie die allgemeine Herangehensweise und abstrahiert den zuvor dargestellten OCR-Prozess (siehe Abbildung 1).
+Die Applikation beschäftigt sich folglich mit der Herausforderung und Anforderung der *Informationsextraktion* und *-Aufbereitung* mithilfe der Verfahren von OCR. Die folgende Abbildung veranschaulicht dabei den grundlegenden Ablauf, sowie die allgemeine Herangehensweise der Anwendung und abstrahiert den zuvor dargestellten Texterkennungsprozess (siehe Abbildung 1):
 
 <br/>
 
 <div align="center">
     <img src="./assets/diagrams/first-process.svg" alt="First process"><br/>
-    <span>Abbildung 3: Abstraktion des OCR-Prozesses - allgemeine Aufgaben der Applikation</span>
+    <span>Abbildung 3: Abstraktion des OCR-Prozesses & grundlegende Aufgaben der Applikation</span>
 </div>
 
 <br/>
 
-**Bildvorverarbeitung:**
+**Bildverarbeitung (Image Processing):**
 
-Der *Bildvorverarbeitungsprozess* umfasst grundlegende Verfahren, wie z.B. *Binarization*, *Image-Resizing*, sowie das *Entfernen* von *nicht-textuellen Flächen*, etc.
+Die *Bildverarbeitung* beschreibt den Prozess der digitalen Aufbereitung eines Bildes mithilfe unterschiedlicher *Filterfunktionalitäten* und *Algorithmen*, um dieses entsprechend für die Weiterverarbeitung, in bestmöglicher Qualität und Reinheit zur Verfügung zu stellen. Dabei werden grundlegende Verfahren, wie z.B. *Binarisierung (Binarization)*, *Skalierung*, sowie das Entfernen von *nicht-textuellen Flächen* und *Störgeräuschen (Noises)*, angewendet.
 
+<br/>
 
 <br/>
 
@@ -163,13 +164,44 @@ Der *Bildvorverarbeitungsprozess* umfasst grundlegende Verfahren, wie z.B. *Bina
 
 <br/>
 
-### Binarization
+### Binarisierung (Binarization)
 
 <hr/>
 
 <br/>
 
-Unter *Binarization* versteht man die Umwandlung der Pixel eines Bildes in *Schwarz* oder *Weiß*, um den Kontrast entsprechend zu erhöhen und die einzelnen Buchstaben folglich besser erkennen zu können.
+Unter *Binarisierung (Binarization)* versteht man den Prozess der Umwandlung der Pixel eines Bildes in *Schwarz* oder *Weiß*. Tesseract verwendet hierfür intern den *Otsu-Algorithmus*, welcher basierend auf der Intensität der einzelnen Pixel, ein *Bildhistorgramm* erstellt und durch die Minimierung der Varianz in jeder Klasse, die Objekte entsprechend segmentiert. Anschließend wird der *Schwellenwert (Threshold)* berechnet nd jene Pixel in dem entsprechenden Bereich durch schwarze oder weiße Pixelpunkte ersetzt, die eine niedrigere oder höhere Sättigung, als der Schwellenwert aufweisen.
+
+Das Ergebnis der internen Binarisierung kann allerdings aufgrund eines ungleichmäßigen Hintergrunds, wenig zufriedenstellend oder nicht exakt genug für die Weiterverarbeitung sein. Entsprechend können andere Verfahren, sowie Tesseract manuell, in der Umwandlung der einzelnen Pixel in Schwarz oder Weiß, unterstützt werden.
+
+Dabei gibt es keinen allgemeingültigen Ansatz, wodurch abhängig von dem jeweiligen Untersuchungsgegenstand, entsprechend unterschiedliche Verfahren getestet und die Ergebnisse miteinander verglichen werden müssen. Dabei unterstützt OpenCV grundsätzlich: *Simple Thresholding*, *Adaptive Thresholding* und *Otsu's Binarization*.
+
+<br/>
+
+**Simple Thresholding:**
+
+Beim *Simple Thresholding* wird abhängig von einem spezifischen Schwellenwerts entschieden, ob ein Pixelpunkt entsprechend in Schwarz oder Weiß umgewandelt wird.
+
+<br/>
+
+```JSX
+cv.threshold(img, 127, 255, cv.THRESH_BINARY);
+cv.threshold(img, 127, 255, cv.THRES_BINARY_INV);
+cv.threshold(img, 127, 255, cv.THRESH_TRUNC);
+cv.threshold(img, 127, 255, cv.THRESH_TOZERO);
+cv.threshold(img, 127, 255, cv.THRESH_TOZERO_INV);
+```
+
+<br/>
+
+Zuerst wird der Funktion *threshold*, das zu bearbeitende Bild als Parameter übergeben und anschließend der Schwellenwert (z.B. 127) definiert. Überschreitet ein Pixelpunkt diesen Wert, wird dieser entsprechend in Schwarz umgewandelt. OpenCV stellt dabei unterschiedliche Methoden für das Thresholding zur Verfügung, dessen Ausgaben in der folgenden Abbildung veranschaulicht werden sollen:
+
+<br/>
+
+<div align="center">
+    <img src="./assets/img/threshold.jpg" alt="Threshold OpenCV"><br/>
+    <span>Abbildung 3: Abstraktion des OCR-Prozesses & grundlegende Aufgaben der Applikation</span>
+</div>
 
 
 <br/>
