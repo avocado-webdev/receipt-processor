@@ -24,13 +24,13 @@
 
 /* set Media Queries for different display sizes and orientation of devices */
 @media screen and(min-width: 512px) {
-    .slide_controller_container {
+    .slides_controller_container {
         height: 7.5%;
     }
 }
 
 @media screen and(min-width: 1920px) {
-    .slide_controller_container {
+    .slides_controller_container {
         .btn {
             height: 48px;
         }

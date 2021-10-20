@@ -29,7 +29,9 @@ const ProcessorModalWrapper: React.FC<ProcessorModalWrapperProps> = ({ children 
                         {children[0]}
                     </IonCol>
                     <IonCol
-                        className={`${styles.col}`}>
+                        className={`${styles.col}`}
+                        sizeXs="12"
+                        sizeLg="6">
                         {children[1]}
                     </IonCol>
                 </IonRow>

@@ -30,7 +30,7 @@ import {
 /* Component(s) */
 import ImagePreview from 'src/components/tesseract/image-preview/ImagePreview';
 import ResultsContainer from 'src/components/tesseract/results-container/ResultsContainer';
-import ImageUploader from 'src/components/tesseract/image-uploader/ImageUploader';
+import ImageController from 'src/components/tesseract/image-controller/ImageController';
 import ProcessorModal from 'src/components/tesseract/processor-modal/ProcessorModal';
 
 /* Stylesheet */
@@ -62,6 +62,7 @@ const TesseractPage: React.FC = () => {
 
     return (
         <React.Fragment>
+            {/* modal for processing images */}
             <ProcessorModal
                 image={imageState.image}
                 showProcessorModal={showProcessorModal}
@@ -103,7 +104,8 @@ const TesseractPage: React.FC = () => {
                         </IonRow>
                     </IonGrid>
                 </IonContent>
-                <ImageUploader />
+                {/* component ImageController to use camera of capacitor */}
+                <ImageController />
                 {imageState.image && !isScrolling && (
                     <IonFab
                         className={styles.fab_container}

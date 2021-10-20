@@ -1,0 +1,73 @@
+/* Stylesheet of ImageController.tsx */
+
+// animations for ion-fab-button
+@keyframes slide-left {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-42px);
+    }
+}
+
+@keyframes slide-right {
+    0% {
+        transform: translate(-42px);
+    }
+    100% {
+        transform: translate(0px);
+    }
+}
+
+// animation for fab-buttons within fab-list
+@keyframes fade-in {
+    0% {
+        opacity: 0
+    }
+    75% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1
+    }
+}
+
+.slide_left {
+    right: 18px;
+    bottom: 16px;
+    animation: slide-left 0.45s ease-in-out forwards;
+}
+
+.slide_right {
+    right: 18px;
+    bottom: 16px;
+    animation: slide-right 0.45s ease-in-out forwards;
+}
+
+.fab_container {
+    right: 18px;
+    bottom: 16px;
+    
+    .open_list_fab {
+        --background: #30394a;
+    }
+}
+
+.fab_list {
+    margin: 0px 0px 62px 0px;
+
+    .trash_fab {
+        position: absolute;
+        height: 48px;
+        width: 48px;
+        left: 12px;
+        bottom: 4px;
+        --background: #ff3434;
+        --color: #ffffff;
+        animation: fade-in 0.25s ease-in-out forwards;
+
+        .icon {
+            font-size: 24px;
+        }
+    }
+}

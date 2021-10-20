@@ -18,14 +18,14 @@ export const imageSlice = createSlice({
         setImage: (state, action) => {
             state.image = action.payload;
         },
-        setEditableImage: (state, action) => {
-
+        clearImage: (state) => {
+            state.image = initialState.image;
         }
     }
 });
 
 /* Action(s) */
-export const { setImage, setEditableImage } = imageSlice.actions;
+export const { setImage, clearImage } = imageSlice.actions;
 
 /* Reducer(s) */
 export default imageSlice.reducer;

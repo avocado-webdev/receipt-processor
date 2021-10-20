@@ -1,0 +1,28 @@
+/* Stylesheet of CapacitorCamera.tsx */
+
+@keyframes fade-in {
+    0% {
+        opacity: 0
+    }
+    75% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1
+    }
+}
+
+.capacitor_camera_fab {
+    position: absolute;
+    height: 48px;
+    width: 48px;
+    right: 56px;
+    bottom: 24px;
+    --background: var(--ion-color-primColor);
+    --color: #ffffff;
+    animation: fade-in 0.45s ease-in-out forwards;
+
+    .icon {
+        font-size: 24px;
+    }
+}
