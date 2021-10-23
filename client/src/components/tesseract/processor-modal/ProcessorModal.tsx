@@ -26,7 +26,6 @@ import cv, { Mat } from 'opencv-ts';
 
 /* Component(s) */
 // import Binarization from 'src/components/tesseract/binarization/Binarization';
-// import SlidesController from 'src/components/shared/slides-controller/SlidesController'
 
 /* Stylesheet */
 import styles from './ProcessorModal.module.scss';
@@ -64,30 +63,9 @@ const ProcessorModal: React.FC<ProcessModalProps> = ({ image, showProcessorModal
     //     setIsProcessing(value);
     // };
 
-    // processingDone
-    // const [processingDone, setIsProcessingDone] = useState<boolean>(false);
-
-    // lockSwipeToNext
-    // const [lockSwipeToNext, setLockSwipeToNext] = useState(true);
-
-    // reachedStart
-    // const [reachedStart, setReachedStart] = useState<boolean>(false);
-
-    // reachedEnd
-    // const [reachedEnd, setReachedEnd] = useState<boolean>(false);
-
-    const lockSwipe = () => {
-        // slideRef.current.lockSwipeToNext(true);
-    };
-
-    // processedImage
-    // const [processedImage, setProcessedImage] = useState<string>('');
-
-    // const handleProcessedImage = (value: string) => {
-    //     setProcessedImage(value);
+    // const lockSwipe = () => {
+    //     slideRef.current.lockSwipeToNext(true);
     // };
-
-    // 
 
     return (
         <IonModal
@@ -104,32 +82,9 @@ const ProcessorModal: React.FC<ProcessModalProps> = ({ image, showProcessorModal
                 onIonSlidesDidLoad={
                     () => {
                         slideRef.current.update();
-                        lockSwipe();
-                        // setReachedStart(true);
                     }
-                }
-            // onIonSlidePrevStart={
-            //     () => {
-            //         setReachedEnd(false);  
-            //     }
-            // }
-            // onIonSlideNextEnd= {
-            //     () => {
-            //         setReachedStart(false);
-            //     }
-            // }
-            // onIonSlideReachStart={
-            //     () => {
-            //         setReachedStart(true);
-            //     }
-            // }
-            // onIonSlideReachEnd={
-            //     () => {
-            //         setReachedEnd(true);
-            //     }
-            // }>
-            >
-                <IonSlide className={styles.slide}>
+                }>
+            <IonSlide className={styles.slide}>
                     {/* <Binarization
                         title={'Binarisierung'}
                         image={image}
@@ -148,11 +103,6 @@ const ProcessorModal: React.FC<ProcessModalProps> = ({ image, showProcessorModal
 
                 </IonSlide>
             </IonSlides>
-            {/* <SlidesController 
-                reachedStart={reachedStart}
-                reachedEnd={reachedEnd}
-                handleIsProcessing={handleIsProcessing} 
-            /> */}
             <IonFab
                 vertical="bottom"
                 horizontal="end">

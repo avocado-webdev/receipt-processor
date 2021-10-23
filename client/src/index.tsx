@@ -13,19 +13,22 @@ import {
 /* Capacitor */
 import { defineCustomElements } from '@ionic/pwa-elements/loader';
 
-/* Redux */
+/* React-Redux */
 import { Provider } from 'react-redux';
-import { store } from 'src/redux/store';
+import { store, persistor } from 'src/redux/store';
+import { PersistGate } from 'redux-persist/integration/react';
 
 ReactDOM.render(
   <Provider store={store}>
-    <React.StrictMode>
-      <Suspense fallback="loading">
-        <Router>
-          <App />
-        </Router>
-      </Suspense>
-    </React.StrictMode>
+    <PersistGate loading={null} persistor={persistor}>
+      {/* <React.StrictMode> */}
+        <Suspense fallback="loading">
+          <Router>
+            <App />
+          </Router>
+        </Suspense>
+      {/* </React.StrictMode> */}
+    </PersistGate>
   </Provider>,
   document.getElementById('root')
 );
